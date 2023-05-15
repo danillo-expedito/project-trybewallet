@@ -8,6 +8,11 @@ const INITIAL_STATE_WALLET = {
 
 const wallet = (state = INITIAL_STATE_WALLET, action) => {
   switch (action.type) {
+  case 'SHOW_CURRENCIES':
+    return {
+      ...state,
+      currencies: [...action.payload],
+    };
   default:
     return state;
   }
