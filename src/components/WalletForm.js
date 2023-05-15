@@ -11,6 +11,7 @@ class WalletForm extends Component {
       currency: 'USD',
     };
   }
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(allCurrencies());
@@ -36,12 +37,13 @@ class WalletForm extends Component {
             id="currency"
             data-testid="currency-input"
             value={ currency }
+            onChange={ this.handleChange }
           >
-            {currencies.map((currency) => (
+            {currencies.map((curr) => (
               <option
                 key={ Math.random() }
               >
-                {currency}
+                {curr}
               </option>
             ))}
           </select>
@@ -80,7 +82,7 @@ class WalletForm extends Component {
 WalletForm.propTypes = {
   currencies: PropTypes.arrayOf.isRequired,
   dispatch: PropTypes.func.isRequired,
-}
+};
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
