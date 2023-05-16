@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import { allCurrencies, allExpenses } from '../redux/actions';
+import { EDITED_EXPENSE, TOTAL_EXPENSE_EDITED, allCurrencies } from '../redux/actions';
 
-class WalletForm extends Component {
+class EditForm extends Component {
   constructor() {
     super();
 
@@ -13,12 +13,32 @@ class WalletForm extends Component {
       method: 'Dinheiro',
       tag: 'Alimentação',
       description: '',
+      exchangeRates: {},
+      prevValue: '',
     };
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, expenses, idToEdit } = this.props;
     dispatch(allCurrencies());
+
+    const expenseToEdit = expenses.find((expense) => expense.id === idToEdit);
+    const { value, description,
+      currency, method, tag, exchangeRates } = expenseToEdit;
+
+    const prevCcyArray = Object.values(exchangeRates);
+    const prevCcySelected = prevCcyArray.find((cur) => cur.code === currency);
+    const prevValue = prevCcySelected.ask * parseFloat(value);
+
+    this.setState({
+      currency,
+      value,
+      method,
+      tag,
+      description,
+      exchangeRates,
+      prevValue,
+    });
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -26,10 +46,11 @@ class WalletForm extends Component {
   };
 
   handleSubmit = () => {
-    const { dispatch, expenses } = this.props;
-    const { value, currency, method, tag, description } = this.state;
+    const { dispatch, idToEdit } = this.props;
+    const { value, currency, method, tag, description,
+      exchangeRates, prevValue } = this.state;
 
-    const id = expenses.length;
+    const id = idToEdit;
     const expensesObj = {
       id,
       value,
@@ -37,9 +58,15 @@ class WalletForm extends Component {
       method,
       tag,
       description,
+      exchangeRates,
     };
+    dispatch(EDITED_EXPENSE(idToEdit, expensesObj));
 
-    dispatch(allExpenses(expensesObj));
+    const ccyArray = Object.values(exchangeRates);
+    const ccySelected = ccyArray.find((cur) => cur.code === currency);
+    const convertedValue = ccySelected.ask * parseFloat(value);
+    dispatch(TOTAL_EXPENSE_EDITED(prevValue, convertedValue));
+
     this.setState({ value: '', description: '' });
   };
 
@@ -123,24 +150,28 @@ class WalletForm extends Component {
           type="button"
           onClick={ this.handleSubmit }
         >
-          Adicionar despesa
+          Editar despesa
         </button>
       </form>
     );
   }
 }
 
-WalletForm.propTypes = {
-  currencies: PropTypes.arrayOf().isRequired,
+EditForm.propTypes = {
+  currencies: PropTypes.shape({
+    map: PropTypes.func,
+  }).isRequired,
   dispatch: PropTypes.func.isRequired,
   expenses: PropTypes.shape({
-    length: PropTypes.number,
+    find: PropTypes.func,
   }).isRequired,
+  idToEdit: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  idToEdit: state.wallet.idToEdit,
 });
 
-export default connect(mapStateToProps)(WalletForm);
+export default connect(mapStateToProps)(EditForm);

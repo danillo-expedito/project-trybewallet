@@ -16,6 +16,10 @@ const total = (state = INITIAL_STATE_TOTAL, action) => {
         ? state.totalExpense - action.payload
         : 0.00,
     };
+  case 'TOTAL_EXPENSE_EDITED':
+    return {
+      totalExpense: state.totalExpense + (action.payload - action.prevValue),
+    };
   default:
     return state;
   }

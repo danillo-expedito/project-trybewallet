@@ -38,6 +38,12 @@ export const TOTAL_EXPENSE_MINUS = (value) => ({
   payload: value,
 });
 
+export const TOTAL_EXPENSE_EDITED = (prevValue, value) => ({
+  type: 'TOTAL_EXPENSE_EDITED',
+  prevValue,
+  payload: value,
+});
+
 export const allExpenses = ({ id, value, description,
   currency, method, tag }) => async (dispatch) => {
   const response = await fetch('https://economia.awesomeapi.com.br/json/all');
@@ -60,3 +66,14 @@ export const allExpenses = ({ id, value, description,
   const convertedValue = ccySelected.ask * parseFloat(value);
   dispatch(TOTAL_EXPENSE(convertedValue));
 };
+
+export const EDIT_EXPENSE = (id) => ({
+  type: 'EDIT_EXPENSE',
+  payload: id,
+});
+
+export const EDITED_EXPENSE = (id, expense) => ({
+  type: 'EDITED_EXPENSE',
+  id,
+  payload: expense,
+});
