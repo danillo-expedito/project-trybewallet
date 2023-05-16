@@ -2,7 +2,6 @@
 const INITIAL_STATE_USER = { email: '' };
 
 const user = (state = INITIAL_STATE_USER, action) => {
-  console.log(action.payload);
   switch (action.type) {
   case 'LOG_IN':
     return {

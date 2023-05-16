@@ -17,3 +17,36 @@ export const allCurrencies = () => async (dispatch) => {
   const curr = Object.keys(data);
   dispatch(SHOW_CURRENCIES(curr));
 };
+
+export const ADD_EXPENSES = (expenses) => ({
+  type: 'ADD_EXPENSES',
+  payload: expenses,
+});
+
+export const TOTAL_EXPENSE = (value) => ({
+  type: 'TOTAL_EXPENSE',
+  payload: value,
+});
+
+export const allExpenses = ({ id, value, description,
+  currency, method, tag }) => async (dispatch) => {
+  const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await response.json();
+
+  delete data.USDT;
+
+  dispatch(ADD_EXPENSES({
+    id,
+    value,
+    description,
+    currency,
+    method,
+    tag,
+    exchangeRates: data,
+  }));
+
+  const ccyArray = Object.values(data);
+  const ccySelected = ccyArray.find((cur) => cur.code === currency);
+  const convertedValue = ccySelected.ask * parseFloat(value);
+  dispatch(TOTAL_EXPENSE(convertedValue));
+};
