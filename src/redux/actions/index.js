@@ -28,6 +28,16 @@ export const TOTAL_EXPENSE = (value) => ({
   payload: value,
 });
 
+export const DELETE_EXPENSE = (id) => ({
+  type: 'DELETE_EXPENSE',
+  payload: id,
+});
+
+export const TOTAL_EXPENSE_MINUS = (value) => ({
+  type: 'TOTAL_EXPENSE_MINUS',
+  payload: value,
+});
+
 export const allExpenses = ({ id, value, description,
   currency, method, tag }) => async (dispatch) => {
   const response = await fetch('https://economia.awesomeapi.com.br/json/all');

@@ -9,6 +9,13 @@ const total = (state = INITIAL_STATE_TOTAL, action) => {
       ...state,
       totalExpense: state.totalExpense + action.payload,
     };
+  case 'TOTAL_EXPENSE_MINUS':
+    return {
+      ...state,
+      totalExpense: (state.totalExpense - action.payload) > 0
+        ? state.totalExpense - action.payload
+        : 0.00,
+    };
   default:
     return state;
   }
