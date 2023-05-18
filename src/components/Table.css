@@ -1,0 +1,46 @@
+.table {
+  background-color: rgb(22, 19, 22);
+  border: 1px solid rgb(30, 50, 49);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 4px;
+  width: 96%;
+}
+
+.table-head th {
+  background-color: rgb(14, 27, 24, 0.9);
+  border: 2px solid rgb(54, 48, 54);
+  border-radius: 6px;
+  color: rgb(255, 255, 242);
+}
+
+.tr-table td {
+  background-color: rgb(14, 27, 24, 0.9);
+  color: rgb(255, 255, 242);
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.edit-button {
+  background-color: rgb(21, 40, 36);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.7);
+  color: white;
+  font-weight: 600;
+}
+
+.delete-button {
+  background-color: rgb(88, 11, 13);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.7);
+  color: white;
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.edit-button:active , .delete-button:active {
+  box-shadow: none;
+}

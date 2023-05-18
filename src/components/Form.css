@@ -1,0 +1,137 @@
+.expense-form {
+  align-items: center;
+  background-color: rgb(54, 48, 54, 0.6);
+  border-radius: 10%;
+  box-shadow: 1px 1px 2px 1px rgb(0, 0, 0, 0.3);
+  display: flex;
+  height: 60px;
+  justify-content: space-evenly;
+  width: 96%;
+}
+
+.value-input {
+  color: rgb(255, 255, 242);
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-transform: uppercase;
+  width: 13%;
+}
+
+.value-input input {
+  background-color: rgb(255, 255, 242);
+  border: 1px solid rgb(30, 50, 49);
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
+  color: rgb(15, 26, 25);
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 6px;
+  text-align: center;
+  width: 60%;
+}
+
+.currency-input {
+  color: rgb(255, 255, 242);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 12%;
+}
+
+.currency-input select {
+  background-color: rgb(255, 255, 242);
+  border: 1px solid rgb(30, 50, 49);
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
+  color: rgb(15, 26, 25);
+  font-family: Times New Roman, Times, serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-align: center;
+  width: 55%;
+}
+
+.method-select {
+  color: rgb(255, 255, 242);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 25%;
+}
+
+.method-select select {
+  background-color: rgb(255, 255, 242);
+  border: 1px solid rgb(30, 50, 49);
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
+  color: rgb(15, 26, 25);
+  font-family: Times New Roman, Times, serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-align: center;
+  width: 42%;
+}
+
+.tag-select {
+  color: rgb(255, 255, 242);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 16%;
+}
+
+.tag-select select {
+  background-color: rgb(255, 255, 242);
+  border: 1px solid rgb(30, 50, 49);
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
+  color: rgb(15, 26, 25);
+  font-family: Times New Roman, Times, serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-align: center;
+  width: 55%;
+}
+
+.description-input {
+  color: rgb(255, 255, 242);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 20%;
+}
+
+.description-input input {
+  background-color: rgb(255, 255, 242);
+  border: 1px solid rgb(30, 50, 49);
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
+  color: rgb(15, 26, 25);
+  font-family: Times New Roman, Times, serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-align: center;
+  width: 60%;
+}
+
+.submit-button {
+  background: linear-gradient(-45deg, #0f1a19, #162725, #162725, #0f1a19);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 1px 1px 2px 1px rgb(0, 0, 0, 0.3);
+  color: rgb(255, 255, 242);
+  font-size: 12px;
+  font-weight: 600;
+  height: 36px;
+  text-transform: uppercase;
+  width: 8%;
+}
+
+.submit-button:active {
+  box-shadow: none;
+}

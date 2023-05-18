@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DELETE_EXPENSE, EDIT_EXPENSE, TOTAL_EXPENSE_MINUS } from '../redux/actions';
+import './Table.css';
 
 class Table extends Component {
   handleSubmit = (id, total) => {
@@ -20,8 +21,8 @@ class Table extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <table>
-        <thead>
+      <table className="table">
+        <thead className="table-head">
           <tr>
             <th>Descrição</th>
             <th>Tag</th>
@@ -34,13 +35,13 @@ class Table extends Component {
             <th>Editar/Excluir</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="table-body">
           {expenses.sort((a, b) => a.id - b.id).map(({ id, value, currency, method, tag,
             description, exchangeRates }) => {
             const exchangeCcy = Object.values(exchangeRates)
               .find((ccy) => ccy.code === currency);
             return (
-              <tr key={ Math.random() }>
+              <tr key={ Math.random() } className="tr-table">
                 <td>{description}</td>
                 <td>{tag}</td>
                 <td>{method}</td>
@@ -53,6 +54,7 @@ class Table extends Component {
                   <button
                     type="button"
                     data-testid="edit-btn"
+                    className="edit-button"
                     onClick={ () => this.handleEdit(id) }
                   >
                     Editar
@@ -60,6 +62,7 @@ class Table extends Component {
                   <button
                     type="button"
                     data-testid="delete-btn"
+                    className="delete-button"
                     onClick={ () => this.handleSubmit(id, (exchangeCcy.ask * value)) }
                   >
                     Excluir

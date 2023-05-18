@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { allCurrencies, allExpenses } from '../redux/actions';
+import './Form.css';
 
 class WalletForm extends Component {
   constructor() {
@@ -48,8 +49,8 @@ class WalletForm extends Component {
     const { value, currency, method, tag, description } = this.state;
 
     return (
-      <form>
-        <label htmlFor="value">
+      <form className="expense-form">
+        <label htmlFor="value" className="value-input">
           Valor:
           <input
             type="number"
@@ -60,7 +61,7 @@ class WalletForm extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="currency">
+        <label htmlFor="currency" className="currency-input">
           Moeda:
           <select
             id="currency"
@@ -78,7 +79,7 @@ class WalletForm extends Component {
             ))}
           </select>
         </label>
-        <label htmlFor="method">
+        <label htmlFor="method" className="method-select">
           Método de pagamento:
           <select
             id="method"
@@ -92,7 +93,7 @@ class WalletForm extends Component {
             <option>Cartão de débito</option>
           </select>
         </label>
-        <label htmlFor="tag">
+        <label htmlFor="tag" className="tag-select">
           Categoria:
           <select
             id="tag"
@@ -108,7 +109,7 @@ class WalletForm extends Component {
             <option>Saúde</option>
           </select>
         </label>
-        <label htmlFor="description">
+        <label htmlFor="description" className="description-input">
           Descrição:
           <input
             type="text"
@@ -122,6 +123,7 @@ class WalletForm extends Component {
         <button
           type="button"
           onClick={ this.handleSubmit }
+          className="submit-button"
         >
           Adicionar despesa
         </button>
