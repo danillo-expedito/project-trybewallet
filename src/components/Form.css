@@ -1,6 +1,6 @@
 .expense-form {
   align-items: center;
-  background-color: rgb(54, 48, 54, 0.6);
+  background-color: rgb(255, 255, 255, 0.6);
   border-radius: 10%;
   box-shadow: 1px 1px 2px 1px rgb(0, 0, 0, 0.3);
   display: flex;
@@ -10,7 +10,7 @@
 }
 
 .value-input {
-  color: rgb(255, 255, 242);
+  color: rgb(14, 27, 24);
   font-size: 14px;
   font-weight: 600;
   margin-left: 6px;
@@ -19,7 +19,7 @@
 }
 
 .value-input input {
-  background-color: rgb(255, 255, 242);
+  background-color: rgb(231, 231, 231);
   border: 1px solid rgb(30, 50, 49);
   border-radius: 4px;
   box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
@@ -32,7 +32,7 @@
 }
 
 .currency-input {
-  color: rgb(255, 255, 242);
+  color: rgb(14, 27, 24);
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -40,7 +40,7 @@
 }
 
 .currency-input select {
-  background-color: rgb(255, 255, 242);
+  background-color: rgb(231, 231, 231);
   border: 1px solid rgb(30, 50, 49);
   border-radius: 4px;
   box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
@@ -54,7 +54,7 @@
 }
 
 .method-select {
-  color: rgb(255, 255, 242);
+  color: rgb(14, 27, 24);
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -62,7 +62,7 @@
 }
 
 .method-select select {
-  background-color: rgb(255, 255, 242);
+  background-color: rgb(231, 231, 231);
   border: 1px solid rgb(30, 50, 49);
   border-radius: 4px;
   box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
@@ -76,7 +76,7 @@
 }
 
 .tag-select {
-  color: rgb(255, 255, 242);
+  color: rgb(14, 27, 24);
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -84,7 +84,7 @@
 }
 
 .tag-select select {
-  background-color: rgb(255, 255, 242);
+  background-color: rgb(231, 231, 231);
   border: 1px solid rgb(30, 50, 49);
   border-radius: 4px;
   box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
@@ -98,7 +98,7 @@
 }
 
 .description-input {
-  color: rgb(255, 255, 242);
+  color: rgb(14, 27, 24);
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -106,7 +106,7 @@
 }
 
 .description-input input {
-  background-color: rgb(255, 255, 242);
+  background-color: rgb(231, 231, 231);
   border: 1px solid rgb(30, 50, 49);
   border-radius: 4px;
   box-shadow: 1px 1px 4px 1px rgb(0, 0, 0, 0.3);
@@ -120,16 +120,22 @@
 }
 
 .submit-button {
-  background: linear-gradient(-45deg, #0f1a19, #162725, #162725, #0f1a19);
+  background: linear-gradient(-80deg, rgb(231, 231, 231), rgb(177, 177, 177));
   border: none;
   border-radius: 6px;
-  box-shadow: 1px 1px 2px 1px rgb(0, 0, 0, 0.3);
-  color: rgb(255, 255, 242);
+  box-shadow: 1px 2px 2px 2px rgb(0, 0, 0, 0.3);
+  color: rgb(15, 26, 25);
   font-size: 12px;
   font-weight: 600;
   height: 36px;
   text-transform: uppercase;
   width: 8%;
+}
+
+.submit-button:hover {
+  background: linear-gradient(-80deg, rgb(3, 177, 55), rgb(1, 165, 50) 70%);
+  color: rgb(231, 231, 231);
+  cursor: pointer;
 }
 
 .submit-button:active {

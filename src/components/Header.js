@@ -8,7 +8,9 @@ class Header extends Component {
     const { email, total } = this.props;
     return (
       <div className="header">
-        <h2>Trybewallet 💳</h2>
+        <div className="title-container">
+          <h2>Trybewallet 🪙</h2>
+        </div>
         <div className="user-container">
           <p
             data-testid="email-field"
